@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width">
+	
+	<meta name="google-signin-clientid" content="841529065552-nt3gm4f3v20k4v79kr12mnn1hkunnn3s.apps.googleusercontent.com" />
+    <meta name="google-signin-cookiepolicy" content="single_host_origin" />
+    <meta name="google-signin-callback" content="signinCallback" />
+    <meta name="google-signin-scope" content="https://www.googleapis.com/auth/games" />
+	
+    <link rel="icon" sizes="196x196" href="candyrush.png">
+	<title>Candy Memory Rush</title>
+	<script src="phaser.min.js"></script>
+	<script src="Boot.js"></script>
+	<script src="Preloader.js"></script>
+	<script src="MainMenu.js"></script>
+	<script src="Game.js"></script>
+	<script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+	
+	<script src="https://apis.google.com/js/client.js"></script>
+	
+</head>
+<body style="margin:0px;" bgcolor="#000000">
+
+<div id="gameContainer"></div>
+
+<script type="text/javascript">
+
+window.onload = function() {
+
+	var game = new Phaser.Game(360,600, Phaser.AUTO, 'gameContainer');
+
+	game.state.add('Boot', CandyMemoryRush.Boot);
+	game.state.add('Preloader', CandyMemoryRush.Preloader);
+	game.state.add('MainMenu', CandyMemoryRush.MainMenu);
+	game.state.add('Game', CandyMemoryRush.Game);
+	game.state.add('Instructions',CandyMemoryRush.Instructions);
+    //game.state.add('progress',CandyMemoryRush.progress);
+	
+	game.state.start('Boot');
+
+};
+
+</script>
+
+</body>
+</html>
