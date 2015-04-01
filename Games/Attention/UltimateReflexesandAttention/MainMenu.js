@@ -124,7 +124,7 @@ UltimateAttention.Instructions.prototype = {
 
 		
 
-		this.backButton = this.add.button(120, this.world.height - 135, 'back', this.startGame, this, 1,0,2);
+		this.backButton = this.add.button(120, this.world.height - 115, 'back', this.startGame, this, 1,0,2);
         this.backButton.scale.setTo(0.7,0.7);
         this.backButton.anchor.setTo(0,1);
 

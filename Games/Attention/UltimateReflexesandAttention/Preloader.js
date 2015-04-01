@@ -27,7 +27,7 @@ UltimateAttention.Preloader.prototype = {
 		this.load.image('title', 'assets/title3.png');
 		this.load.image('insmain', 'assets/instma.png');
 		
-		this.load.image('insdetail', 'assets/insdetail2.png');
+		this.load.image('insdetail', 'assets/ins.png');
         this.load.image('sweettext', 'assets/sweet.png');
         this.load.image('awesometext', 'assets/awesome.png');
         this.load.image('greattext', 'assets/great.png');

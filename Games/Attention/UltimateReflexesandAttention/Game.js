@@ -16,7 +16,7 @@ UltimateAttention.Game.prototype = {
 		/*this.backButton = this.add.button(10, this.world.height - 55, 'back', this.startit, this, 1,0,2);
 		this.backButton.scale.setTo(0.4,0.4);*/
 		
-		this.checkButton = this.add.button(90, this.world.height - 220, 'check', this.checkit, this, 1,0,2);
+		this.checkButton = this.add.button(90, this.world.height - 205, 'check', this.checkit, this, 1,0,2);
 		this.checkButton.scale.setTo(0.4,0.4);
 		this.checkButton.alpha = 0.0;
 		
