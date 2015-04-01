@@ -1,0 +1,35 @@
+﻿{"frames": [
+
+{
+	"filename": "Symbol 10000",
+	"frame": {"x":0,"y":0,"w":373,"h":97},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":373,"h":97},
+	"sourceSize": {"w":373,"h":97}
+}
+,{
+	"filename": "Symbol 10001",
+	"frame": {"x":373,"y":0,"w":373,"h":97},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":373,"h":97},
+	"sourceSize": {"w":373,"h":97}
+}
+,{
+	"filename": "Symbol 10002",
+	"frame": {"x":746,"y":0,"w":373,"h":97},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":373,"h":97},
+	"sourceSize": {"w":373,"h":97}
+}],
+"meta": {
+	"app": "Adobe Flash Professional",
+	"version": "14.0.0.110",
+	"image": "Untitled-1.png",
+	"format": "RGBA8888",
+	"size": {"w":1119,"h":97},
+	"scale": "1"
+}
+}
