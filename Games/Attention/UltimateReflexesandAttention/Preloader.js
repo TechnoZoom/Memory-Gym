@@ -37,11 +37,14 @@ UltimateAttention.Preloader.prototype = {
 		
         
 		this.load.atlas('spriteset', 'assets/spritesheet2.png', 'assets/spritesheet2.json');
-		this.load.spritesheet('play','assets/playcand.png',210,133);
+		this.load.spritesheet('play','assets/playorg.png',173,174);
 		this.load.spritesheet('check','assets/Untitled-1.png',373,97);
 		this.load.spritesheet('back','assets/ret.png',190,94.10);
 	    this.load.spritesheet('retry','assets/retry.png',80,136);
 		this.load.spritesheet('begin','assets/begin.png',600,172);
+		
+		this.load.spritesheet('wrong', 'assets/wrong.png', 163, 155,4);
+		this.load.spritesheet('tick', 'assets/tick.png', 196, 186,3);
 
 		this.load.spritesheet('insbutton','assets/instructions.png',400,83);
 		this.load.bitmapFont('font', 'assets/fnt2_0.png', 'assets/fnt2.fnt');
@@ -50,9 +53,11 @@ UltimateAttention.Preloader.prototype = {
 		this.load.bitmapFont('font4', 'assets/font4.png', 'assets/font4.fnt');
 		this.load.audio('music', ['assets/music.mp3','assets/music.ogg','assets/music.wav','assets/music.m4a']);
 		this.load.audio('blip', ['assets/blip.mp3','assets/blip.ogg','assets/blip.wav','assets/blip.m4a']);
-        this.load.audio('sweet', 'assets/sweet.mp3');
-        this.load.audio('great', 'assets/great.mp3');
+        this.load.audio('right', 'assets/rightsound.mp3');
+        this.load.audio('wro', 'assets/datswrong.mp3');
+		this.load.audio('over', 'assets/over.mp3');
         this.load.audio('awesome', 'assets/awesome.mp3');
+		
 
 
 	},

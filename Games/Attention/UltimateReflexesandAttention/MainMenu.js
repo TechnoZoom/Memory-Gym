@@ -44,7 +44,7 @@ UltimateAttention.MainMenu.prototype = {
 	
 	dispinst: function (pointer) {
 
-		this.music.stop();
+		
 
 		this.state.start('Instructions');
 		
@@ -73,43 +73,30 @@ UltimateAttention.Instructions.prototype = {
 
 	create: function () {
 
-		this.music = this.add.audio('music',1,true);
-		if(playmusic==true){
-			this.music.play('',0,1,true);
-		}
 		
 		
 		this.insmain = this.add.sprite(this.world.centerX,40, 'insmain');
 		this.insmain.anchor.setTo(0.5,0.5);
 		this.insmain.scale.setTo(0.5,0.5);
 		
-		this.insdetail = this.add.sprite(this.world.centerX,260, 'insdetail');
+		this.insdetail = this.add.sprite(this.world.centerX,235, 'insdetail');
 		this.insdetail.anchor.setTo(0.5,0.5);
 		this.insdetail.scale.setTo(0.43,0.43);
 
 		
 
-		this.backButton = this.add.button(120, this.world.height - 115, 'back', this.startGame, this, 1,0,2);
+		this.backButton = this.add.button(120, this.world.height - 100, 'back', this.startGame, this, 1,0,2);
         this.backButton.scale.setTo(0.7,0.7);
         this.backButton.anchor.setTo(0,1);
 
       
 	},
 
-	changemusic : function(){
-        if(playmusic==true){
-            this.music.stop();
-            playmusic = false;
-        }
-        else{
-            this.music.play();
-            playmusic = true;
-        }
-    },
+	
 
     startGame: function (pointer) {
 
-        this.music.stop();
+        
 
         this.state.start('MainMenu');
 

@@ -14,6 +14,27 @@ UltimateAttention.Game.prototype = {
 		this.score = 0;
 		this.wrnganscount = 0;
 		this.stage.backgroundColor = "#FFFFF0";
+		
+		this.wrong = this.add.sprite(100, this.world.height - 530, 'wrong');
+		this.wrong.scale.setTo(0.8,0.8);
+		this.wrong.animations.add('an');
+		this.wrong.alpha = 0.0;
+		
+		this.right = this.add.audio('right');
+		this.wro = this.add.audio('wro');
+		this.over = this.add.audio('over');
+		
+		
+		if(localStorage.getItem('highscore') === null) {
+		   localStorage.setItem('highscore',0);
+		   }
+		
+		this.tick = this.add.sprite(100, this.world.height - 530, 'tick');
+		this.tick.scale.setTo(0.8,0.8);
+		this.tick.animations.add('an');
+		this.tick.alpha = 0.0;
+		//this.tick.animations.play('an', 10, true);
+		
 		/*this.backButton = this.add.button(10, this.world.height - 55, 'back', this.startit, this, 1,0,2);
 		this.backButton.scale.setTo(0.4,0.4);*/
 		
@@ -56,8 +77,10 @@ UltimateAttention.Game.prototype = {
 		this.animalcount =  0;
 		this.animal = Math.floor(Math.random() * (12 - 0 + 1)) + 0;
 		
-		this.quetext = this.add.bitmapText(5 ,70,'font3','' ,35);
-		this.scoretext = this.add.bitmapText(200 ,25,'font4','Score : O' ,35);
+		this.quetext = this.add.bitmapText(5 ,90,'font3','' ,35);
+		this.overnote = this.add.bitmapText(5 ,85,'font4','' ,18);
+		this.scoretext = this.add.bitmapText(230 ,46,'font4','Score : 0' ,24);
+		this.highscoretext = this.add.bitmapText(5 ,46,'font4','High Score : ' + localStorage.getItem('highscore') ,24);
 		//this.quetext.scale.setTo(0.7,0.7);
 		 
 		
@@ -72,11 +95,22 @@ UltimateAttention.Game.prototype = {
 	
 	replay: function(pointer) {
 		
+		
+		if(this.retryButton.alpha == 0.0) {
+			
+		return;	
+		}
+		
 		  this.state.start('Game');
 		
 	},
 	
 	ret: function(pointer) {
+		
+		if(this.backButton.alpha == 0.0) {
+			
+		return;	
+		}
 		
 		  this.state.start('MainMenu');
 		
@@ -86,7 +120,19 @@ UltimateAttention.Game.prototype = {
 	
 	//this.timerr.start();
 		
+		if(this.begin.alpha == 0.0) {
+			
+		return;	
+		}
+		
 		this.animalcount = 0;
+		
+		this.tick.alpha = 0.0;
+		this.wrong.alpha = 0.0;
+		
+		this.tick.animations.stop('an');
+		this.tick.animations.stop('an');
+		
 		
 		document.getElementById("inputarea").style.visibility = "hidden";
 		this.checkButton.alpha = 0.0;
@@ -103,6 +149,12 @@ UltimateAttention.Game.prototype = {
 	
 	//this.timerr.start();
 		
+		if(this.checkButton.alpha == 0.0) {
+			
+		return;	
+		}
+		
+		
 		if(document.getElementById("inputarea").value == this.animalcount) {
 			
 			this.score = this.score + this.lnth;
@@ -112,12 +164,24 @@ UltimateAttention.Game.prototype = {
 			this.life2.alpha = 1.0;
 			this.life1.alpha = 1.0;
 			
+			this.tick.alpha = 1.0;
+			this.tick.animations.play('an', 10, true);
+			
+			this.right.play();
+			
 		}
 		
 		else {
 			
+			
 			this.wrnganscount++;
 			this.lives[this.wrnganscount -1].alpha = 0.0;
+			this.wrong.alpha = 1.0;
+			this.wrong.animations.play('an', 10, true);
+			
+			this.wro.play();
+			
+			
 			
 		}
 		
@@ -126,8 +190,21 @@ UltimateAttention.Game.prototype = {
 			this.checkButton.alpha = 0.0;
 	        this.begin.alpha = 0.0;	
 		    this.backButton.alpha = 1.0;
-		    this.quetext.setText('\n         GAME OVER');
+		    this.quetext.setText('\n         GAME OVER ');
+			this.overnote.setText('\n\n\n\nYou answered incorrectly 3 times consecutively');
 			this.retryButton.alpha = 1.0;
+			
+			this.wrong.alpha = 0.0;
+		    this.wrong.animations.stop('an');
+			
+			if(parseInt(localStorage.getItem('highscore')) < this.score) {
+				
+				localStorage.setItem('highscore',this.score);
+				
+				this.highscoretext.setText('High Score : ' + localStorage.getItem('highscore'));
+			}
+			
+			this.over.play();
 		}
 		
 		else {
@@ -218,7 +295,7 @@ showinganimals: function() {
 		
 		for(var j =0; j< 4;j++) {
 	
-	this.animalsshown[this.animalindex] = this.add.sprite(this.world.centerX-120+90*j,this.world.centerY-190+80*i,'spriteset');
+	this.animalsshown[this.animalindex] = this.add.sprite(this.world.centerX-120+90*j,this.world.centerY-170+80*i,'spriteset');
 	this.animalsshown[this.animalindex].frameName = 'shape' + (this.animalsshownindex[this.animalindex]+1).toString() +'.png';
 	this.animalsshown[this.animalindex].anchor.setTo(0.5,0.5);
 	this.animalsshown[this.animalindex].scale.setTo(0.6,0.6);		

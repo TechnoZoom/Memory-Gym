@@ -12,6 +12,7 @@ UltimateAttention.Boot.prototype = {
 
         this.load.image('preloaderBackground', 'assets/preloadbck.png');
         this.load.image('preloaderBar', 'assets/preloadbar.png');
+		document.getElementById("inputarea").style.visibility = "hidden";
 
     },
 

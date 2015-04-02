@@ -1,0 +1,51 @@
+﻿{"frames": [
+
+{
+	"filename": "Symbol 30000",
+	"frame": {"x":0,"y":0,"w":163,"h":155},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":163,"h":155},
+	"sourceSize": {"w":163,"h":155}
+}
+,{
+	"filename": "Symbol 30001",
+	"frame": {"x":163,"y":0,"w":163,"h":155},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":163,"h":155},
+	"sourceSize": {"w":163,"h":155}
+}
+,{
+	"filename": "Symbol 30002",
+	"frame": {"x":163,"y":0,"w":163,"h":155},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":163,"h":155},
+	"sourceSize": {"w":163,"h":155}
+}
+,{
+	"filename": "Symbol 30003",
+	"frame": {"x":326,"y":0,"w":163,"h":155},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":163,"h":155},
+	"sourceSize": {"w":163,"h":155}
+}
+,{
+	"filename": "Symbol 30004",
+	"frame": {"x":489,"y":0,"w":163,"h":155},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":163,"h":155},
+	"sourceSize": {"w":163,"h":155}
+}],
+"meta": {
+	"app": "Adobe Flash Professional",
+	"version": "14.0.0.110",
+	"image": "wrong.png",
+	"format": "RGBA8888",
+	"size": {"w":652,"h":155},
+	"scale": "1"
+}
+}
