@@ -25,6 +25,7 @@ UltimateAttention.Preloader.prototype = {
 		this.load.setPreloadSprite(this.preloadBar);
 
 		this.load.image('title', 'assets/title3.png');
+		this.load.image('life', 'assets/loveheart.png');
 		this.load.image('insmain', 'assets/instma.png');
 		
 		this.load.image('insdetail', 'assets/ins.png');

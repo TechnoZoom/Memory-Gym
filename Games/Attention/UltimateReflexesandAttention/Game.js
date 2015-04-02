@@ -12,6 +12,7 @@ UltimateAttention.Game.prototype = {
 		this.animalsshown = [];
 		this.animalindex = 0;
 		this.score = 0;
+		this.wrnganscount = 0;
 		this.stage.backgroundColor = "#FFFFF0";
 		/*this.backButton = this.add.button(10, this.world.height - 55, 'back', this.startit, this, 1,0,2);
 		this.backButton.scale.setTo(0.4,0.4);*/
@@ -20,11 +21,33 @@ UltimateAttention.Game.prototype = {
 		this.checkButton.scale.setTo(0.4,0.4);
 		this.checkButton.alpha = 0.0;
 		
+		this.life1 = this.add.sprite(90,22, 'life');
+		this.life1.anchor.setTo(0.5,0.5);
+		this.life1.scale.setTo(0.09,0.09);
+		this.life1.alpha = 1.0;
+		
+		this.life2 = this.add.sprite(56,22, 'life');
+		this.life2.anchor.setTo(0.5,0.5);
+		this.life2.scale.setTo(0.09,0.09);
+		this.life2.alpha = 1.0;
+		
+		this.life3 = this.add.sprite(22,22, 'life');
+		this.life3.anchor.setTo(0.5,0.5);
+		this.life3.scale.setTo(0.09,0.09);
+		this.life3.alpha = 1.0;
+		
+		this.lives = [this.life1, this.life2, this.life3];
+		
 		this.backButton = this.add.button(120, this.world.height - 85, 'back', this.ret, this, 1,0,2);
         this.backButton.scale.setTo(0.7,0.7);
         this.backButton.anchor.setTo(0,1);
 		
-		this.begin = this.add.button(40, this.world.height - 380, 'begin', this.startit, this, 1,0,2);
+		this.retryButton = this.add.button(150, this.world.height - 210, 'retry', this.replay, this, 1,0,2);
+        this.retryButton.scale.setTo(0.7,0.7);
+        this.retryButton.anchor.setTo(0,1);
+		this.retryButton.alpha = 0.0;
+		
+		this.begin = this.add.button(40, this.world.height - 400, 'begin', this.startit, this, 1,0,2);
 		this.begin.scale.setTo(0.5,0.5);
 		
         
@@ -46,6 +69,12 @@ UltimateAttention.Game.prototype = {
 		
 	},
 	
+	
+	replay: function(pointer) {
+		
+		  this.state.start('Game');
+		
+	},
 	
 	ret: function(pointer) {
 		
@@ -78,12 +107,37 @@ UltimateAttention.Game.prototype = {
 			
 			this.score = this.score + this.lnth;
 			this.scoretext.setText('Score : ' + this.score.toString());
+			this.wrnganscount = 0 ;
+			this.life3.alpha = 1.0;
+			this.life2.alpha = 1.0;
+			this.life1.alpha = 1.0;
+			
 		}
 		
+		else {
+			
+			this.wrnganscount++;
+			this.lives[this.wrnganscount -1].alpha = 0.0;
+			
+		}
+		
+		if(this.wrnganscount ==3) {
+			
+			this.checkButton.alpha = 0.0;
+	        this.begin.alpha = 0.0;	
+		    this.backButton.alpha = 1.0;
+		    this.quetext.setText('\n         GAME OVER');
+			this.retryButton.alpha = 1.0;
+		}
+		
+		else {
 		this.checkButton.alpha = 0.0;
 	    this.begin.alpha = 1.0;	
 		this.backButton.alpha = 1.0;
 		this.quetext.setText('');
+		
+		}
+		
 		document.getElementById("inputarea").style.visibility = "hidden";
 },
 	
